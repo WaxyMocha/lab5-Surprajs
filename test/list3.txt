@@ -1,0 +1,9 @@
+Paweł;Piechowski;69;9858,86
+Michał;Krychowiak;22;9461,05
+Jakub;Piechowski;48;5278,86
+Tomasz;Lewandowski;56;2435,46
+Andrzej;Helik;52;8647,82
+Adam;Krychowiak;50;4638,35
+Mateusz;Glik;44;6515,68
+Paweł;Szczęsny;50;4717,52
+Mateusz;Jóźwiak;35;4961,89

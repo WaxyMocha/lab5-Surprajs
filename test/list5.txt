@@ -1,0 +1,6 @@
+Krzysztof;Bereszyński;25;3150,27
+Krzysztof;Piechowski;25;3085,24
+Mateusz;Bereszyński;21;7525,42
+Robert;Walkowiak;21;6333,39
+Jan;Walkowiak;60;2080,16
+Jakub;Szymański;29;2933,68
