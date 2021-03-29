@@ -45,7 +45,7 @@ public class FileDataProcessor {
 
                 int maxAge = listOfPeople.get(listOfPeople.size()-1).getTheOldestPerson().getAge();
                 String maxName = listOfPeople.get(listOfPeople.size()-1).getTheOldestPerson().getName();
-                String contentToWrite2 = String.format("The oldest in file %d%s%s%s$1%4$d\n",listOfPeople.size(),CSV_SEP,maxName,maxAge);
+                String contentToWrite2 = String.format("The oldest in file %d%s%s%2$s%4$d\n",listOfPeople.size(),CSV_SEP,maxName,maxAge);
 
                 writeToCSV("results_salary.csv", contentToWrite, counter != 0);
                 writeToCSV("results_age.csv", contentToWrite2, counter != 0);

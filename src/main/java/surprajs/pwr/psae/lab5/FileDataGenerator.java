@@ -33,7 +33,7 @@ public class FileDataGenerator {
                     String surname = listSurnames.get(new Random().nextInt(listSurnames.size()));
                     int age = Person.randAge();
                     double salary = Person.randSalary();
-                    file.write(String.format("%2$s%1$s%3$s%1$s%4$d%1$s%5$.2f\n", CSV_SEP,name,surname,age,salary));
+                    file.write(String.format("%2$s%1$s%3$s%1$s%4$d%1$s%5$.2f\n",CSV_SEP,name,surname,age,salary));
                 }
             } catch (IOException e) {
                 System.err.println(e);

@@ -22,7 +22,7 @@
                         </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>surprajs.pwr.psae.lab5.Task3</mainClass>
+                            <mainClass>surprajs.pwr.psae.lab5.Task1</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
