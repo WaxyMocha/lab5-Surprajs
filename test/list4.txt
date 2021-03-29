@@ -1,6 +1,4 @@
-Maciej;Szczęsny;50;5827,43
-Robert;Bereszyński;58;6567,74
-Jakub;Milik;31;869,96
-Tomasz;Wójs;29;5540,78
-Michał;Krychowiak;21;3167,28
-Adam;Bednarek;39;605,07
+Name,Surname,Age,Salary
+Piotr,Milik,49,5842,23
+Maciej,Szymański,45,6806,95
+Mateusz,Glik,24,2577,02

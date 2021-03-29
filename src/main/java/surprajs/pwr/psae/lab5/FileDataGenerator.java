@@ -26,12 +26,13 @@ public class FileDataGenerator {
                     new FileOutputStream(String.format("%s%s%slist%d.txt",absolutePath,dir,sep,i+1)),
                     Charset.forName("UTF-8").newEncoder());) {
                 int personsInFile = new Random().nextInt(10)+1;
+                file.write("Name,Surname,Age,Salary\n");
                 for (int j = 0; j < personsInFile; ++j) {
                     String name = listNames.get(new Random().nextInt(listNames.size()));
                     String surname = listSurnames.get(new Random().nextInt(listSurnames.size()));
                     int age = Person.randAge();
                     double salary = Person.randSalary();
-                    file.write(String.format("%s;%s;%d;%.2f\n", name,surname,age,salary));
+                    file.write(String.format("%s,%s,%d,%.2f\n", name,surname,age,salary));
                 }
                 file.close();
             } catch (IOException e) {

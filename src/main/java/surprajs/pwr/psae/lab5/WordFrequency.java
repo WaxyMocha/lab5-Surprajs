@@ -9,10 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
-
 import java.util.HashMap;
 import java.util.Map;
-//import java.util.stream.Stream;
 
 public class WordFrequency {
     public WordFrequency() {
@@ -20,48 +18,45 @@ public class WordFrequency {
         HashMap<String, Integer> wordCountAll = new HashMap<>();     
         String sep = System.getProperty("file.separator");
         String absolutePath = System.getProperty("user.dir") + sep;
-        String directory = "1000_novels_test";
-        File dir = new File(String.format("%s1000_novels",absolutePath));
+        String directory = "1000_novels";
+        File dir = new File(String.format("%s%s",absolutePath,directory));
         File[] filesInDirectory = dir.listFiles();
-        int counter = 0;
         for (File filepath: filesInDirectory) {
-            try (BufferedReader file = new BufferedReader(
-            new InputStreamReader(
-            new FileInputStream(filepath),
-            Charset.forName("UTF-8").newDecoder()));) {
-            String read;
-            wordCount.clear();
-            while ((read = file.readLine()) != null) {
-                if (!read.isEmpty()) {
-                    String line = new String(read.getBytes());
-                    String[] wordsInLine = line.replaceAll("[^a-zA-ZÀ-ž ]", "").toLowerCase().trim().split("\\s+");
-                    for (String word: wordsInLine) {
-                        if (!word.isEmpty()) {
-                            wordCount.put(word, wordCount.getOrDefault(word,0)+1);
-                            wordCountAll.put(word, wordCountAll.getOrDefault(word,0)+1);  
+            System.out.println(filepath.getName().substring(filepath.getName().lastIndexOf(".")));
+            if (filepath.getName().substring(filepath.getName().lastIndexOf(".")).equals(".txt")) {
+                //S//ystem.out.println(filepath.getName().substring(filepath.getName().lastIndexOf(".")));
+                try (BufferedReader file = new BufferedReader(
+                new InputStreamReader(
+                new FileInputStream(filepath),
+                Charset.forName("UTF-8").newDecoder()));) {
+                String read;
+                wordCount.clear();
+                while ((read = file.readLine()) != null) {
+                    if (!read.isEmpty()) {
+                        String line = new String(read.getBytes());
+                        String[] wordsInLine = line.replaceAll("[^a-zA-ZÀ-ž ]", "").toLowerCase().trim().split("\\s+");
+                        for (String word: wordsInLine) {
+                            if (!word.isEmpty()) {
+                                wordCount.put(word, wordCount.getOrDefault(word,0)+1);
+                                wordCountAll.put(word, wordCountAll.getOrDefault(word,0)+1);  
+                            }
                         }
                     }
                 }
+                writeToCSV(wordCount, String.format("words_%s", filepath.getName().replaceAll("txt$","csv")));
+                file.close();
+                } catch (FileNotFoundException e) {
+                    System.err.println(e);
+                    System.exit(0);
+                } catch (IOException e) {
+                    System.err.println(e);
+                    System.exit(0);
+                }
             }
-                    writeToCSV(wordCount, String.format("%s_test.csv", filepath.getName()));
-                    //System.out.println(wordCount.get(""));
-            ++counter;
-            if (counter%100 == 0) System.out.println(counter);
-            file.close();
-        } catch (FileNotFoundException e) {
-            System.err.println(e);
-            System.exit(0);
-        } catch (IOException e) {
-            System.err.println(e);
-            System.exit(0);
-        } 
-            //try {
-          //writeToCSV(wordCount, String.format("test_%s", file.getName());// throw new IOException();  
-            ////} catch (IOException e) {}
         }
-        writeToCSV(wordCountAll, "all_test.csv");
-
+        writeToCSV(wordCountAll, "words_all.csv");
     }
+    
     public static void writeToCSV(HashMap<String,Integer> words, String filename) {
         String sep = System.getProperty("file.separator");
         String absolutePath = System.getProperty("user.dir") + sep;
@@ -70,8 +65,9 @@ public class WordFrequency {
         try (OutputStreamWriter file = new OutputStreamWriter(
         new FileOutputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,filename)),
         Charset.forName("UTF-8").newEncoder());) {
+                file.write("Word,Frequency\n");
                 for (Map.Entry<String,Integer> word: words.entrySet()) {
-                    file.write(String.format("%s;%d\n",word.getKey(),word.getValue()));
+                    file.write(String.format("%s,%d\n",word.getKey(),word.getValue()));
                 }
                 file.close();
             } catch (IOException e) {

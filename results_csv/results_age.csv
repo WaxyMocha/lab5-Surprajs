@@ -1,6 +1,6 @@
-The oldest in file number 1:; Michał, age 64
-The oldest in file number 2:; Piotr, age 40
-The oldest in file number 3:; Paweł, age 69
-The oldest in file number 4:; Robert, age 58
-The oldest in file number 5:; Jan, age 60
-The oldest in total:; Paweł, age 69
+The oldest in file 1,Piotr,25
+The oldest in file 2,Piotr,65
+The oldest in file 3,Adam,63
+The oldest in file 4,Piotr,49
+The oldest in file 5,Andrzej,55
+The oldest in total,Piotr,65

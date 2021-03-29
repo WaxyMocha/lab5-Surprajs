@@ -16,7 +16,7 @@ public class PossiblePrimesGenerator {
         try (OutputStreamWriter file = new OutputStreamWriter(
         new FileOutputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,filename)));) {
                 for (int i = 0; i < number; ++i) {
-                    file.write(String.format("%d\n", randLongNumber()));
+                    file.write(String.format("%d,\n", randLongNumber()));
                 }
                 file.close();
             } catch (IOException e) {

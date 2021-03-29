@@ -1,14 +1,12 @@
 package surprajs.pwr.psae.lab5;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 public class PrimeChecker {
@@ -22,7 +20,7 @@ public class PrimeChecker {
         try (OutputStreamWriter file = new OutputStreamWriter(
         new FileOutputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,filename)));) {
                 for (long prime: primes) {
-                    file.write(String.format("%d\n", prime));
+                    file.write(String.format("%d,\n", prime));
                 }
                 file.close();
             } catch (IOException e) {
@@ -40,7 +38,7 @@ public class PrimeChecker {
             new FileInputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,possiblePrimeFile))));) {
             String read;
             while ((read = file.readLine()) != null) {
-                long number = Long.parseLong(new String(read.getBytes()));
+                long number = Long.parseLong(new String(read.getBytes()).replaceAll(",", ""));
                 if (Primes.isPrime(number)) primeList.add(number);
             }
             file.close();

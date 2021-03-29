@@ -1,9 +1,2 @@
-Krzysztof;Szczęsny;45;2321,58
-Paweł;Szymański;53;8494,09
-Michał;Piątek;64;2489,23
-Tomasz;Grosicki;25;7680,83
-Jan;Krychowiak;21;8991,75
-Mateusz;Lewandowski;27;8232,66
-Tomasz;Grosicki;54;8100,59
-Piotr;Grosicki;39;8864,41
-Adam;Szczęsny;62;2827,72
+Name,Surname,Age,Salary
+Piotr,Wójs,25,6644,40

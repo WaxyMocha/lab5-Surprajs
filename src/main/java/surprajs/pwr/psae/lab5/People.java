@@ -14,28 +14,41 @@ public class People{
     }
     
     public Person getPerson(int index) {
-        return this.pList.get(index);
+        try {
+            return this.pList.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            return new Person("","",-1,0.0);
+        }
     }
     
     
     public Person getTheOldestPerson() {
-        Person ps = this.pList.get(0);
-        int maxAge = ps.getAge();
-        for (Person p: this.pList) {
-            if (p.getAge() > maxAge) {
-                maxAge = p.getAge();
-                ps = p;
+        try {
+            Person ps = this.pList.get(0);
+            int maxAge = ps.getAge();
+            for (Person p: this.pList) {
+                if (p.getAge() > maxAge) {
+                    maxAge = p.getAge();
+                    ps = p;
+                }
             }
+            return ps;
+        } catch (IndexOutOfBoundsException e) {
+            return new Person("","",-1,0.0);
         }
-        return ps;
     }
     
     public double getAverageSalary() {
-        double totalSalary = 0.0;
-        for (Person p: this.pList) {
-            totalSalary += p.getSalary();
+        try {
+            double totalSalary = 0.0;
+            for (Person p: this.pList) {
+                totalSalary += p.getSalary();
+            }
+            if (pList.isEmpty()) throw new ArithmeticException();
+            return totalSalary/pList.size();
+        } catch (ArithmeticException e) {
+            return -1.0;
         }
-        return totalSalary/pList.size();
     }
     
     public int getSize() {
