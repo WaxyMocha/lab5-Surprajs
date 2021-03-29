@@ -1,4 +1,3 @@
-
 package surprajs.pwr.psae.lab5;
 
 import java.io.File;
@@ -8,25 +7,32 @@ import java.io.OutputStreamWriter;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class PossiblePrimesGenerator {
+    private final static String CSV_SEP = ",";
+    
     public PossiblePrimesGenerator(int number, String filename) {
         String sep = System.getProperty("file.separator");
         String absolutePath = System.getProperty("user.dir") + sep;
         String dir = "primes";
         new File(String.format("%s%s", absolutePath, dir)).mkdirs();
-        try (OutputStreamWriter file = new OutputStreamWriter(
-        new FileOutputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,filename)));) {
-                for (int i = 0; i < number; ++i) {
-                    file.write(String.format("%d,\n", randLongNumber()));
-                }
-                file.close();
+        OutputStreamWriter file = null;
+        try {
+        file = new OutputStreamWriter(new FileOutputStream(String.format("%s%s%s%s%s",absolutePath,sep,dir,sep,filename)));
+        
+            for (int i = 0; i < number; ++i) {
+                file.write(String.format("%d%s\n", randLongNumber(),CSV_SEP));
+            }
+        } catch (IOException e) {
+            System.err.println(e);
+        } finally {
+            try {
+                if (file != null) file.close();
             } catch (IOException e) {
                 System.err.println(e);
-                System.exit(0);
             }
+        }
     }
+    
     public static long randLongNumber() {
         return ThreadLocalRandom.current().nextLong(10_000_000_000L, 100_000_000_000L);
     }
 }
-
-    

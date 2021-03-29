@@ -1,8 +1,8 @@
 package surprajs.pwr.psae.lab5;
 
-import java.util.ArrayList; //for ArrayLists
+import java.util.ArrayList;
 
-public class People{
+public class People {
     private ArrayList<Person> pList;
     
     public People() {
@@ -55,4 +55,3 @@ public class People{
         return this.pList.size();
     }
 }
-

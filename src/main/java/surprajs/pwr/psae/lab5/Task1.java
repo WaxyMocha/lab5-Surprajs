@@ -6,7 +6,8 @@ package surprajs.pwr.psae.lab5;
 
 public class Task1 {
     public static void main(String[] args) {
-        FileDataGenerator f1 = new FileDataGenerator(5,"test");
-        FileDataProcessor f2 = new FileDataProcessor("test");
+        FileDataGenerator f1 = new FileDataGenerator(5,"people");
+        FileDataProcessor f2 = new FileDataProcessor("people");
+        
     }
 }

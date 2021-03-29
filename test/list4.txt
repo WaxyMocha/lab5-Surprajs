@@ -1,4 +1,0 @@
-Name,Surname,Age,Salary
-Piotr,Milik,49,5842,23
-Maciej,Szymański,45,6806,95
-Mateusz,Glik,24,2577,02

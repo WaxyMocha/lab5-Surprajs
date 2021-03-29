@@ -1,2 +1,0 @@
-Name,Surname,Age,Salary
-Piotr,Wójs,25,6644,40
