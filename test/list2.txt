@@ -1,4 +1,0 @@
-Name,Surname,Age,Salary
-Andrzej,Helik,31,6747,13
-Tomasz,Milik,22,8394,79
-Piotr,Bednarek,65,3884,81

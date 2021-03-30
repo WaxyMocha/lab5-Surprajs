@@ -7,7 +7,6 @@ public class Person {
     private int age;
     private double salary;
     
-    
     public Person(String name, String surname, int age, double salary) {
         this.name = name;
         this.surname = surname;

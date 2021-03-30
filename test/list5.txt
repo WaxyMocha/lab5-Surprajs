@@ -1,7 +1,0 @@
-Name,Surname,Age,Salary
-Paweł,Walkowiak,37,9160,07
-Piotr,Krychowiak,54,7367,27
-Stefan,Jóźwiak,27,9451,51
-Adam,Krychowiak,46,8827,53
-Andrzej,Wójs,55,8096,12
-Robert,Szczęsny,47,1624,64
